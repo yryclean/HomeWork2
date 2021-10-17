@@ -86,27 +86,35 @@ public class Main {
 
 
         //TODO: Fourth home task;
-          System.out.println("Please enter your channel");
-          int canal = new Scanner(System.in).nextInt();
-          String[][] canalNames = {
-                {"ONT", "TNT", "Discovery" }
-         };
-          while (canal >= 4) {
-            System.out.println("Please enter your channel");
-            canal= new Scanner(System.in).nextInt();
-          } if (canal == 3) {
-                System.out.println(canalNames[0][0]);
-                System.out.println("Choose one more channel");
-                canal = new Scanner(System.in).nextInt();
-         } else if (canal == 2) {
-                System.out.println(canalNames[0][1]);
-                System.out.println("Please enter your channel");
-            canal = new Scanner(System.in).nextInt();
-         } else if (canal == 1) {
-                System.out.println(canalNames[0][2]);
-                System.out.println("Please enter your channel");
-            canal = new Scanner(System.in).nextInt();
-         } else if (canal == 0) {
-                System.out.println("Exit");}
-    }
-}
+        System.out.println("Please enter channel number from 1 - 3, 0 to Exit");
+        int canal = new Scanner(System.in).nextInt();
+        String[][] canalNames = {
+                {"ONT", "TNT", "Discovery"}};
+
+                switch (canal) {
+                    case 1:
+                        for (String[] canalName : canalNames) {
+                            System.out.println(canalNames[0][2]);
+                            canal = new Scanner(System.in).nextInt();
+                        }
+                    case 2:
+                        for (String[] canalName : canalNames) {
+                            System.out.println(canalNames[0][1]);
+                            canal = new Scanner(System.in).nextInt();
+                        }
+                    case 3:
+                        for (String[] canalName : canalNames) {
+                            System.out.println(canalNames[0][0]);
+                            canal = new Scanner(System.in).nextInt();
+                        }
+                }
+                while (canal != 1 && canal != 2 && canal != 3) {
+                    System.out.println("Please enter correct channel");
+                    canal = new Scanner(System.in).nextInt();
+                    if (canal == 0) {
+                        System.out.println("Bye-bye!");
+                        break;
+                    }
+                }
+            }
+        }
